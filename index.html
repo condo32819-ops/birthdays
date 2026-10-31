@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14323f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Birthdays">
+  <meta name="description" content="Upcoming birthdays, soonest first. Stored on this phone.">
+  <title>Birthdays</title>
+  <link rel="manifest" href="./manifest.webmanifest" type="application/manifest+json">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="icon" href="./icon-192.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <div class="wrap head">
+      <div class="title-row">
+        <h1>Birthdays</h1>
+        <button id="add" type="button">Add</button>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <form id="editor" hidden novalidate>
+      <input id="name" type="text" maxlength="60" placeholder="Name" aria-label="Name" autocomplete="name" enterkeyhint="done" required>
+      <div class="picks">
+        <select id="month" aria-label="Month"></select>
+        <select id="day" aria-label="Day"></select>
+        <select id="year" aria-label="Birth year, optional"></select>
+      </div>
+      <div class="actions">
+        <button type="submit">Save</button>
+        <button id="cancel" type="button">Cancel</button>
+        <button id="delete" type="button" hidden>Delete</button>
+      </div>
+      <p id="form-msg" class="form-msg" role="alert"></p>
+    </form>
+    <div id="list"></div>
+    <p id="empty" class="empty" hidden>No birthdays yet.</p>
+    <p class="backup">
+      <button id="export" type="button" class="linkish">Export</button>
+      <span aria-hidden="true">·</span>
+      <button id="import-btn" type="button" class="linkish">Import</button>
+      <input id="import-file" type="file" accept="application/json,.json,text/plain,.txt" hidden>
+    </p>
+    <p id="backup-msg" class="hint" role="status"></p>
+  </main>
+  <noscript>
+    <p class="noscript">Turn on JavaScript. The list stays on this phone.</p>
+  </noscript>
+  <script src="./dates.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
